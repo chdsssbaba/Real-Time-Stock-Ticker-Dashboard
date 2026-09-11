@@ -1,0 +1,11 @@
+services:
+  stock-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_STOCK_API_BASE_URL: ${VITE_STOCK_API_BASE_URL:-https://finnhub.io/api/v1}
+        VITE_STOCK_API_KEY: ${VITE_STOCK_API_KEY:-demo}
+    ports:
+      - "8080:80"
+    restart: always
